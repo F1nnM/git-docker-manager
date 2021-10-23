@@ -40,7 +40,7 @@ jobs:
           context: .
           push: true
           tags: |
-            f1nnm/git-server-management:release-${{ github.event.release.tag_name }}
-            f1nnm/git-server-management:latest
-            ghcr.io/f1nnm/git-server-management:release-${{ github.event.release.tag_name }}
-            ghcr.io/f1nnm/git-server-management:latest
+            f1nnm/git-docker-manager:release-${{ github.event.release.tag_name }}
+            f1nnm/git-docker-manager:latest
+            ghcr.io/f1nnm/git-docker-manager:release-${{ github.event.release.tag_name }}
+            ghcr.io/f1nnm/git-docker-manager:latest
