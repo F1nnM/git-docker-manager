@@ -2,7 +2,8 @@
   "name": "git-server-management",
   "description": "Use a Github repository to manage your docker containers and nginx configuration",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "init": "node init.js"
   },
   "repository": {
     "type": "git",
