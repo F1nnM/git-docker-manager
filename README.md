@@ -4,7 +4,7 @@ Use a Github repository to manage your docker containers
 ## Usage
 ### 1. Set up container
 ```sh
-docker run -e WATCHED_REPO="F1nnM/git-server-management" -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock gitservermanagement
+docker run -e WATCHED_REPO="F1nnM/git-server-management" -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock git-docker-manager
 ```
 
 ### 2. Set up repo
