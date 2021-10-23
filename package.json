@@ -1,0 +1,19 @@
+{
+  "name": "git-server-management",
+  "description": "Use a Github repository to manage your docker containers and nginx configuration",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F1nnM/git-server-management.git"
+  },
+  "bugs": {
+    "url": "https://github.com/F1nnM/git-server-management/issues"
+  },
+  "homepage": "https://github.com/F1nnM/git-server-management#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-git-hook": "^0.3.3"
+  }
+}
