@@ -29,6 +29,7 @@ app.post('/', mw, (req, res) => {
               throw error
             }
             else console.log(stdout)
+            res.status(200).end()
           })
 
         })(project)
