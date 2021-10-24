@@ -1,7 +1,8 @@
 const clone = require('git-clone/promise');
 const fs = require('fs');
 const path = require('path')
-const deploy = require("./deploy")
+const deploy = require("./deploy");
+const del = require('del');
 
 // taken from express-git-hook's source
 function buildFileTree(rootDir) {
@@ -22,9 +23,7 @@ function buildFileTree(rootDir) {
 const clonePath = "./cloned-repo";
 
 (async () => {
-  if (fs.existsSync(clonePath)) {
-    fs.rmdirSync(clonePath, { recursive: true })
-  }
+  del.sync([clonePath+"/**", "!"+clonePath])
 
   await clone("https://github.com/" + process.env.REPOSITORY, clonePath)
 
