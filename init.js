@@ -20,10 +20,10 @@ function buildFileTree(rootDir) {
   return dir
 }
 
-const clonePath = "./cloned-repo";
+const clonePath = "cloned-repo";
 
 (async () => {
-  del.sync([clonePath+"/**", "!"+clonePath])
+  del.sync([clonePath+"/**",clonePath+"/.git", "!"+clonePath])
 
   await clone("https://github.com/" + process.env.REPOSITORY, clonePath)
 
