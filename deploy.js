@@ -14,6 +14,7 @@ module.exports = function deploy(toCompose, callback) {
 
         execFile('/usr/local/bin/docker-compose', ['-f', toCompose[project]['docker-compose.yml'], 'up', '-d', '--remove-orphans', '--build'], async (error, stdout, stderr) => {
           if (error) {
+            console.error(stdout)
             console.error(stderr)
             throw error
           }
