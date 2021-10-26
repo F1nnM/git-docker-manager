@@ -12,7 +12,7 @@ module.exports = function deploy(toCompose, callback) {
         if (typeof toCompose[project] === "string")
           throw new Error(`${project} is not a directory!`)
 
-        execFile('/usr/local/bin/docker-compose', ['-f', toCompose[project]['docker-compose.yml'], 'up', '-d', '--remove-orphans', '--build'], async (error, stdout, stderr) => {
+        execFile('/usr/local/bin/docker-compose', ['-f', toCompose[project]['docker-compose.yml'], 'up', '-d', '--remove-orphans', '--build', '-t', '180'], async (error, stdout, stderr) => {
           if (error) {
             console.error(stdout)
             console.error(stderr)
