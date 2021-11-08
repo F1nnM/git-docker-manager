@@ -3,7 +3,7 @@ const { hook } = require('express-git-hook')
 
 const deploy = require("./deploy")
 
-const mw = hook(process.env.WATCHED_REPO, "cloned-repo")
+const mw = hook(process.env.WATCHED_REPO, "cloned-repo", [], process.env.PAT)
 
 var app = express()
 
