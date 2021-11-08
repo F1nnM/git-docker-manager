@@ -1,4 +1,0 @@
-version: '2'
-services:
-  hello_world:
-    image: f1nnm/docker-monitor
