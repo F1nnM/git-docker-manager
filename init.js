@@ -24,8 +24,12 @@ const clonePath = "cloned-repo";
 
 (async () => {
   del.sync([clonePath+"/**",clonePath+"/.git", "!"+clonePath])
-
-  await clone("https://github.com/" + process.env.REPOSITORY, clonePath, ["--recursive", "-j8"])
+  try {
+    await clone("https://github.com/" + process.env.REPOSITORY, clonePath, ["--recursive", "-j8"])
+  } catch (e) {
+    console.error(e)
+    return
+  }
 
   deploy(buildFileTree(clonePath)["compose"], () => console.log("Done!"))
 })()
