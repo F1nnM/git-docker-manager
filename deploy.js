@@ -13,10 +13,12 @@ module.exports = function deploy(toCompose, callback) {
       }
       proc = spawn('docker-compose', ['-f', toCompose[project]['docker-compose.yml'], 'up', '-d', '--remove-orphans', '--build', '-t', '180'])
       proc.stdout.on('data', (data) => {
-        console.log(`[${project}]: ${(""+data).replace(/\n(.+)/gi, `\n[${project}]: $1`)}`);
+        let header = `(${Date.now().toLocaleTimeString('en-US')})[${project}]: `
+        console.log(`${header}${(""+data).replace(/\n(.+)/gi, `\n${header}$1`)}`);
       })
       proc.stderr.on('data', (data) => {
-        console.error(`[${project}]: ${(""+data).replace(/\n.+/gi, `\n[${project}]: $1`)}`);
+        let header = `(${Date.now().toLocaleTimeString('en-US')})[${project}]: `
+        console.error(`${header}${(""+data).replace(/\n(.+)/gi, `\n${header}$1`)}`);
       })
       proc.on('exit', (code) => {
         console.log(`${project} exited with code ${code}`);
