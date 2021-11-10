@@ -17,6 +17,6 @@
   "dependencies": {
     "del": "^6.0.0",
     "express": "^4.17.1",
-    "express-git-hook": "^0.3.11"
+    "express-git-hook": "^0.3.12"
   }
 }
