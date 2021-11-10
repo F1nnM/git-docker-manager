@@ -13,11 +13,11 @@ module.exports = function deploy(toCompose, callback) {
       }
       proc = spawn('docker-compose', ['-f', toCompose[project]['docker-compose.yml'], 'up', '-d', '--remove-orphans', '--build', '-t', '180'])
       proc.stdout.on('data', (data) => {
-        let header = `(${Date.now().toLocaleTimeString('en-US')})[${project}]: `
+        let header = `(${new Date().toLocaleTimeString('en-US')})[${project}]: `
         console.log(`${header}${(""+data).replace(/\n(.+)/gi, `\n${header}$1`)}`);
       })
       proc.stderr.on('data', (data) => {
-        let header = `(${Date.now().toLocaleTimeString('en-US')})[${project}]: `
+        let header = `(${new Date().toLocaleTimeString('en-US')})[${project}]: `
         console.error(`${header}${(""+data).replace(/\n(.+)/gi, `\n${header}$1`)}`);
       })
       proc.on('exit', (code) => {
