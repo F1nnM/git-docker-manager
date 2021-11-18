@@ -30,9 +30,7 @@ const clonePath = "cloned-repo";
   if(pat){
     cloneUrl = `https://user:${pat}@github.com/${process.env.REPOSITORY}`
   }else{
-    if(data.repository.private)
-      throw new Error("Received hook from private repository, but no PAT was supplied!")
-      cloneUrl = `https://github.com/${process.env.REPOSITORY}`
+    cloneUrl = `https://github.com/${process.env.REPOSITORY}`
   }
   
   try {
