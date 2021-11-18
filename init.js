@@ -28,15 +28,15 @@ const clonePath = "cloned-repo";
   let cloneUrl
   const pat = process.env.PAT
   if(pat){
-    cloneUrl = `https://user:${pat}@github.com/${data.repository.full_name}`
+    cloneUrl = `https://user:${pat}@github.com/${process.env.REPOSITORY}`
   }else{
     if(data.repository.private)
       throw new Error("Received hook from private repository, but no PAT was supplied!")
-      cloneUrl = `https://github.com/${data.repository.full_name}`
+      cloneUrl = `https://github.com/${process.env.REPOSITORY}`
   }
   
   try {
-    await clone("https://github.com/" + process.env.REPOSITORY, clonePath, {args: ["--recursive", "-j8"]})
+    await clone(cloneUrl, clonePath, {args: ["--recursive", "-j8"]})
   } catch (e) {
     console.error(e)
     return
