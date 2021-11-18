@@ -42,5 +42,5 @@ jobs:
           tags: |
             f1nnm/git-docker-manager:release-${{ github.event.release.tag_name }}
             f1nnm/git-docker-manager:latest
-            ghcr.io/The-GitDeploy/git-docker-manager:release-${{ github.event.release.tag_name }}
-            ghcr.io/The-GitDeploy/git-docker-manager:latest
+            ghcr.io/the-gitdeploy/git-docker-manager:release-${{ github.event.release.tag_name }}
+            ghcr.io/the-gitdeploy/git-docker-manager:latest
